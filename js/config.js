@@ -6,7 +6,8 @@ var __apiKeys = [
 	'm778633291-52eb9cf04a775635208ca2c7', //MCC
 	'm778633899-c617d3535eebdb58683ec039', //API-everyday
 	'm778633898-e7f8f0f481963c6d51062bb8', //API-hitokoto	
-	'm778634030-1d03c553fa1512ec8f26b3ad'//MCC-yun
+	'm778634030-1d03c553fa1512ec8f26b3ad',//MCC-yun
+	'm778636412-82cd748c34fbc60905825812'//MCN-lab
 ];
 
 // refresh interval (in seconds)
