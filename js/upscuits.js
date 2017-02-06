@@ -45,7 +45,7 @@ myApp.dashboard = (function($) {
                     case "ok":
                     strHtml += "<h4>PHP-FPM: <span class=\"label label-default\"><i class=\"glyphicon glyphicon-ok\"></i> Good</span></h4>";
                     break;
-                    case "error":
+                    case "error (restarting)":
                     strHtml += "<h4>PHP-FPM: <span class=\"label label-danger\"><i class=\"glyphicon glyphicon-remove\"></i> ERROR</span></h4>";
                     break;
                     default:
@@ -56,7 +56,7 @@ myApp.dashboard = (function($) {
                     case "ok":
                     strHtml += "<h4>MySql: <span class=\"label label-default\"><i class=\"glyphicon glyphicon-ok\"></i> Good</span></h4>";
                     break;
-                    case "error":
+                    case "error (restarting)":
                     strHtml += "<h4>MySql: <span class=\"label label-danger\"><i class=\"glyphicon glyphicon-remove\"></i> ERROR</span></h4>";
                     break;
                     default:
