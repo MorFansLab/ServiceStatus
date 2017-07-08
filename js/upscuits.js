@@ -7,7 +7,8 @@ myApp.dashboard = (function($) {
         _start = Date.now();
         _template = $('#server-template').html();
         $_container = $('#server-container').html('');
-        
+        $_mainstatus = $('#maintitle').html('<i class=\"glyphicon glyphicon-fire\"></i> Loading...');
+        $_mainstatusSyle = $("#mianstdiv").css("background",'linear-gradient(#f0ffb6, #98a8a0);');
         $_servertitle = $('#server-title').html('');
         //$_prograss = $('.loading');
         //$_countdown = $('.countdown');
@@ -44,23 +45,29 @@ myApp.dashboard = (function($) {
                 switch(data.phpfpm){
                     case "ok":
                     strHtml += "<h4>PHP-FPM: <span class=\"label label-default\"><i class=\"glyphicon glyphicon-ok\"></i> Good</span></h4>";
+                    changeStatus("normal");
                     break;
                     case "error (restarting)":
                     strHtml += "<h4>PHP-FPM: <span class=\"label label-danger\"><i class=\"glyphicon glyphicon-remove\"></i> ERROR</span></h4>";
+                    changeStatus("error");
                     break;
                     default:
                     strHtml += "<h4>PHP-FPM: <span class=\"label label-primary\"><i class=\"glyphicon glyphicon-warning-sign\"></i> NO</span></h4>";
+                    changeStatus("error");
                 }
                 //strHtml += "<h4>PHP-FPM: <span class=\"label label-default\">"+data.phpfpm+"</span></h4>";
                 switch(data.mysql){
                     case "ok":
                     strHtml += "<h4>MySql: <span class=\"label label-default\"><i class=\"glyphicon glyphicon-ok\"></i> Good</span></h4>";
+                    changeStatus("normal");
                     break;
                     case "error (restarting)":
                     strHtml += "<h4>MySql: <span class=\"label label-danger\"><i class=\"glyphicon glyphicon-remove\"></i> ERROR</span></h4>";
+                    changeStatus("error");
                     break;
                     default:
                     strHtml += "<h4>MySql: <span class=\"label label-primary\"><i class=\"glyphicon glyphicon-warning-sign\"></i> NO</span></h4>";
+                    changeStatus("error");
                 }
                 //strHtml += "<h4>MySql: <span class=\"label label-default\">"+data.mysql +"</span></h4>";
                 strHtml += "<hr><h5><span class=\"label label-info\">"+data.last_update +"</span></h5>";  
@@ -71,6 +78,25 @@ myApp.dashboard = (function($) {
                  changeServerInfo("<h1><i class=\"glyphicon glyphicon-remove-circle\"></i> ERROR</h1>");
              }
          });
+    }
+
+    function changeStatus(status){
+        switch (status) {
+            case "error":
+                $_mainstatus.html('<i class=\" glyphicon glyphicon-ok-circle\"></i> NOT GREAT!');
+                $_mainstatusSyle.css("background",'linear-gradient(red, #ffb6b6);');
+                break;
+
+            case "normal":
+                $_mainstatus.html('<i class=\"glyphicon glyphicon-ok-circle\"></i> Great!');
+                $_mainstatusSyle.css("background","");
+                break;
+        
+            default:
+                $_mainstatus.html('<i class=\"glyphicon glyphicon-ok-circle\"></i> Hello!');
+                $_mainstatusSyle.css("background",'linear-gradient(#f0ffb6, #98a8a0);');
+                break;
+        }
     }
     /* load uptime variables from uptimerobot
 	* this calls jsonUptimeRobotApi() when loaded
