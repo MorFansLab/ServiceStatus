@@ -41,6 +41,7 @@ myApp.dashboard = (function($) {
              jsonp: "callback",
              jsonpCallback:"serverinfo",
              success: function(data){                
+                strHtml += "<h4>Uptime: <span class=\"label label-default\">"+data.uptime+"</span></h4>";
                 strHtml += "<h4>Ram: <span class=\"label label-default\">"+data.ram+"</span></h4>";
                 switch(data.phpfpm){
                     case "ok":
@@ -70,7 +71,6 @@ myApp.dashboard = (function($) {
                     changeStatus("error");
                 }
                 //strHtml += "<h4>MySql: <span class=\"label label-default\">"+data.mysql +"</span></h4>";
-                strHtml += "<hr><h5><span class=\"label label-info\">"+data.last_update +"</span></h5>";  
                 changeServerInfo(strHtml);
              },
              error: function(){
