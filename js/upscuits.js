@@ -42,7 +42,7 @@ myApp.dashboard = (function($) {
              jsonpCallback:"serverinfo",
              success: function(data){                
                 strHtml += "<h4>Uptime: <span class=\"label label-default\">"+data.uptime+"</span></h4>";
-                strHtml += "<h4>Ram: <span class=\"label label-default\">"+data.ram+"</span></h4>";
+                strHtml += "<h4>RAM: <span class=\"label label-default\">"+data.ram+"</span></h4>";
                 switch(data.phpfpm){
                     case "ok":
                     strHtml += "<h4>PHP-FPM: <span class=\"label label-default\"><i class=\"glyphicon glyphicon-ok\"></i> Good</span></h4>";
@@ -59,18 +59,18 @@ myApp.dashboard = (function($) {
                 //strHtml += "<h4>PHP-FPM: <span class=\"label label-default\">"+data.phpfpm+"</span></h4>";
                 switch(data.mysql){
                     case "ok":
-                    strHtml += "<h4>MySql: <span class=\"label label-default\"><i class=\"glyphicon glyphicon-ok\"></i> Good</span></h4>";
+                    strHtml += "<h4>MySQL: <span class=\"label label-default\"><i class=\"glyphicon glyphicon-ok\"></i> Good</span></h4>";
                     changeStatus("normal");
                     break;
                     case "error (restarting)":
-                    strHtml += "<h4>MySql: <span class=\"label label-danger\"><i class=\"glyphicon glyphicon-remove\"></i> ERROR</span></h4>";
+                    strHtml += "<h4>MySQL: <span class=\"label label-danger\"><i class=\"glyphicon glyphicon-remove\"></i> ERROR</span></h4>";
                     changeStatus("error");
                     break;
                     default:
-                    strHtml += "<h4>MySql: <span class=\"label label-primary\"><i class=\"glyphicon glyphicon-warning-sign\"></i> NO</span></h4>";
+                    strHtml += "<h4>MySQL: <span class=\"label label-primary\"><i class=\"glyphicon glyphicon-warning-sign\"></i> NO</span></h4>";
                     changeStatus("error");
                 }
-                //strHtml += "<h4>MySql: <span class=\"label label-default\">"+data.mysql +"</span></h4>";
+                //strHtml += "<h4>MySQL: <span class=\"label label-default\">"+data.mysql +"</span></h4>";
                 changeServerInfo(strHtml);
              },
              error: function(){
