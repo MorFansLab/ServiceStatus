@@ -36,11 +36,11 @@ myApp.dashboard = (function($) {
         var strHtml ="";
   $.ajax({
              type: "get",
-             url: "http://api.chainwon.cc/status/status.json",
+             url: "https://api.chainwon.cc/status/status.json",
              dataType: "jsonp",
              jsonp: "callback",
              jsonpCallback:"serverinfo",
-             success: function(data){                
+             success: function(data){
                 strHtml += "<h4>Uptime: <span class=\"label label-default\">"+data.uptime+"</span></h4>";
                 strHtml += "<h4>RAM: <span class=\"label label-default\">"+data.ram+"</span></h4>";
                 switch(data.phpfpm){
@@ -91,7 +91,7 @@ myApp.dashboard = (function($) {
                 $_mainstatus.html('<i class=\"glyphicon glyphicon-ok-circle\"></i> Great!');
                 $_mainstatusSyle.css("background","");
                 break;
-        
+
             default:
                 $_mainstatus.html('<i class=\"glyphicon glyphicon-ok-circle\"></i> Hello!');
                 $_mainstatusSyle.css("background",'linear-gradient(#f0ffb6, #98a8a0);');
